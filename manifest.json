@@ -58,16 +58,16 @@
       "purpose": "any"
     }
   ],
-  "categories": ["shopping", "lifestyle"],
+  "categories": ["business", "productivity"],
   "shortcuts": [
     {
-      "name": "Ver Catálogo",
-      "short_name": "Catálogo",
-      "description": "Ver nuestros productos artesanales",
-      "url": "/index.html#tienda",
+      "name": "Sistemas",
+      "short_name": "Sistemas",
+      "description": "Ver nuestros sistemas sectoriales",
+      "url": "/index.html#sistemas",
       "icons": [
         {
-          "src": "https://placehold.co/96x96/c9a227/ffffff?text=SS",
+          "src": "https://placehold.co/96x96/c9a227/ffffff?text=SF",
           "sizes": "96x96"
         }
       ]
@@ -76,10 +76,10 @@
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Contactar con nosotros",
-      "url": "/index.html#contacto",
+      "url": "/index.html#seguridad",
       "icons": [
         {
-          "src": "https://placehold.co/96x96/c9a227/ffffff?text=SS",
+          "src": "https://placehold.co/96x96/c9a227/ffffff?text=SF",
           "sizes": "96x96"
         }
       ]
