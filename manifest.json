@@ -1,7 +1,7 @@
 {
-  "name": "SUMAQ SIRAY LS - Artesanías del Colca",
-  "short_name": "SUMAQ SIRAY",
-  "description": "Productos artesanales auténticos del Valle del Colca con bordados tradicionales",
+  "name": "SFYSH | Desarrollo de Sistemas Web a Medida",
+  "short_name": "SFYSH",
+  "description": "Expertos en desarrollo de Sistemas Web a Medida, Hotelería y Logística en Arequipa, Perú",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#1a1a1a",
@@ -10,49 +10,49 @@
   "scope": "/",
   "icons": [
     {
-      "src": "https://placehold.co/72x72/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/72x72/c9a227/ffffff?text=SF",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/96x96/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/96x96/c9a227/ffffff?text=SF",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/128x128/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/128x128/c9a227/ffffff?text=SF",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/144x144/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/144x144/c9a227/ffffff?text=SF",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/152x152/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/152x152/c9a227/ffffff?text=SF",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/192x192/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/192x192/c9a227/ffffff?text=SF",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/384x384/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/384x384/c9a227/ffffff?text=SF",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "https://placehold.co/512x512/c9a227/ffffff?text=SS",
+      "src": "https://placehold.co/512x512/c9a227/ffffff?text=SF",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
