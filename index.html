@@ -1163,6 +1163,36 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Install Button Mobile */
+        .install-btn-mobile {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 9999;
+            box-shadow: var(--shadow-glow);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+
+        .install-btn-mobile:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .install-btn-mobile i {
+            font-size: 18px;
+        }
     </style>
 </head>
 <body data-theme="dark">
@@ -1461,47 +1491,51 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3>SUMAQ SIRAY LS</h3>
-                    <p>Empresa dedicada a promover las artesanías, bordados y cultura del Valle del Colca, elaborando productos auténticos y de calidad.</p>
+                    <h3>SFYSH</h3>
+                    <p>Tu socio tecnológico para el control y automatización de procesos en Arequipa, Perú.</p>
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://sfysh.com"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://sfysh.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=51963700816"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h4>Enlaces</h4>
+                    <h4>Enlaces Rápidos</h4>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#ofrecemos">Ofrecemos</a></li>
-                        <li><a href="#trabajos">Trabajos</a></li>
-                        <li><a href="#tienda">Tienda</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Servicios</h4>
-                    <ul>
-                        <li><a href="#">Catálogo Online</a></li>
-                        <li><a href="#">Envíos</a></li>
-                        <li><a href="#">Personalizados</a></li>
-                        <li><a href="#">Mayorista</a></li>
+                        <li><a href="#sistemas">Sistemas</a></li>
+                        <li><a href="#hosting">Hosting</a></li>
+                        <li><a href="#metodologia">Metodología</a></li>
+                        <li><a href="#seguridad">Seguridad</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Legal</h4>
                     <ul>
-                        <li><a href="#">Privacidad</a></li>
-                        <li><a href="#">Términos</a></li>
-                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Libro de Reclamaciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="https://api.whatsapp.com/send?phone=51963700816">+51 963 700 816</a></li>
+                        <li><a href="mailto:suarezsh@sfysh.com">suarezsh@sfysh.com</a></li>
+                        <li><a href="#">Arequipa, Perú</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© Sumaqsiray LS. Todos los derechos reservados.</p>
-                <p>Hecho con amor en el Valle del Colca, Perú</p>
+                <p>© 2025 SFYSH | Soluciones de Sistemas Web a Medida.</p>
             </div>
         </div>
     </footer>
+
+    <!-- Install Button for Mobile -->
+    <button id="installButton" class="install-btn-mobile" style="display: none;">
+        <i class="fas fa-download"></i>
+        <span>Instalar App</span>
+    </button>
 
     <script>
         // Theme toggle
@@ -1597,41 +1631,32 @@
 
         // PWA Install Prompt
         let deferredPrompt;
+        const installButton = document.getElementById('installButton');
+        
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
             
-            // Show install button (you can add a button in UI)
-            const installButton = document.createElement('button');
-            installButton.textContent = '📲 Instalar App';
-            installButton.style.cssText = `
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                padding: 15px 25px;
-                background: var(--gradient);
-                color: white;
-                border: none;
-                border-radius: 50px;
-                font-weight: 600;
-                cursor: pointer;
-                z-index: 9999;
-                box-shadow: var(--shadow-glow);
-                transition: all 0.3s ease;
-            `;
-            
-            installButton.addEventListener('click', () => {
+            // Show install button
+            installButton.style.display = 'flex';
+        });
+        
+        installButton.addEventListener('click', () => {
+            if (deferredPrompt) {
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('User accepted the install prompt');
                     }
                     deferredPrompt = null;
-                    installButton.remove();
+                    installButton.style.display = 'none';
                 });
-            });
-            
-            document.body.appendChild(installButton);
+            }
+        });
+        
+        // Check if app is already installed
+        window.addEventListener('appinstalled', () => {
+            installButton.style.display = 'none';
         });
     </script>
 </body>
