@@ -2,12 +2,12 @@
   "name": "SFYSH | Desarrollo de Sistemas Web a Medida",
   "short_name": "SFYSH",
   "description": "Expertos en desarrollo de Sistemas Web a Medida, Hotelería y Logística en Arequipa, Perú",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#c9a227",
   "orientation": "portrait-primary",
-  "scope": "/",
+  "scope": "./",
   "icons": [
     {
       "src": "https://placehold.co/72x72/c9a227/ffffff?text=SF",
@@ -64,7 +64,7 @@
       "name": "Sistemas",
       "short_name": "Sistemas",
       "description": "Ver nuestros sistemas sectoriales",
-      "url": "/index.html#sistemas",
+      "url": "./index.html#sistemas",
       "icons": [
         {
           "src": "https://placehold.co/96x96/c9a227/ffffff?text=SF",
@@ -76,7 +76,7 @@
       "name": "Contacto",
       "short_name": "Contacto",
       "description": "Contactar con nosotros",
-      "url": "/index.html#seguridad",
+      "url": "./index.html#seguridad",
       "icons": [
         {
           "src": "https://placehold.co/96x96/c9a227/ffffff?text=SF",
