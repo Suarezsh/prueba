@@ -66,7 +66,7 @@ self.addEventListener('fetch', event => {
                 }).catch(error => {
                     // You can return a custom offline page here
                     console.log('Fetch failed:', error);
-                    return caches.match('/sumaqsirayls_landing.html');
+                    return caches.match('/index.html');
                 });
             })
     );
@@ -87,9 +87,9 @@ function syncForms() {
 // Push notifications
 self.addEventListener('push', event => {
     const options = {
-        body: event.data ? event.data.text() : 'Nuevos productos disponibles en SUMAQ SIRAY LS',
-        icon: '/icon-192x192.png',
-        badge: '/icon-72x72.png',
+        body: event.data ? event.data.text() : 'Nuevos productos disponibles en SFYSH',
+        icon: 'https://placehold.co/192x192/c9a227/ffffff?text=SF',
+        badge: 'https://placehold.co/72x72/c9a227/ffffff?text=SF',
         vibrate: [100, 50, 100],
         data: {
             dateOfArrival: Date.now(),
@@ -98,13 +98,13 @@ self.addEventListener('push', event => {
     };
 
     event.waitUntil(
-        self.registration.showNotification('SUMAQ SIRAY LS', options)
+        self.registration.showNotification('SFYSH', options)
     );
 });
 
 self.addEventListener('notificationclick', event => {
     event.notification.close();
     event.waitUntil(
-        clients.openWindow('/sumaqsirayls_landing.html')
+        clients.openWindow('/index.html')
     );
 });
