@@ -14,7 +14,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     
     <!-- PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <link rel="apple-touch-icon" href="https://placehold.co/192x192/c9a227/ffffff?text=SS">
     <link rel="icon" type="image/png" sizes="192x192" href="https://placehold.co/192x192/c9a227/ffffff?text=SS">
     <link rel="icon" type="image/png" sizes="512x512" href="https://placehold.co/512x512/c9a227/ffffff?text=SS">
@@ -1620,7 +1620,7 @@
         // Register Service Worker for PWA
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
                         console.log('ServiceWorker state:', registration.installing ? 'installing' : (registration.waiting ? 'waiting' : 'active'));
