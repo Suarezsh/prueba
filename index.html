@@ -1533,10 +1533,10 @@
     </footer>
 
     <!-- Install Button for Mobile -->
-    <button id="installButton" class="install-btn-mobile" style="position: fixed !important; bottom: 20px !important; right: 20px !important; padding: 15px 25px !important; background: #c9a227 !important; color: #ffffff !important; border: 2px solid #ffffff !important; border-radius: 50px !important; font-weight: 700 !important; cursor: pointer !important; z-index: 999999 !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important; transition: all 0.3s ease !important; display: flex !important; align-items: center !important; gap: 10px !important; font-size: 16px !important; font-family: Arial, sans-serif !important; min-width: 150px !important; height: 50px !important;">
-        <span style="font-size: 20px !important;">⬇️</span>
-        <span>Instalar App</span>
-    </button>
+    <div id="installButton" style="position: fixed; bottom: 20px; right: 20px; padding: 15px 25px; background: #c9a227; color: #ffffff; border: 3px solid #ffffff; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 9999999; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8); font-size: 18px; font-family: Arial, sans-serif; min-width: 160px; height: 55px; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">
+        <span style="font-size: 24px;">⬇️</span>
+        <span>INSTALAR APP</span>
+    </div>
 
     <script>
         // Theme toggle
@@ -1640,7 +1640,15 @@
         });
         
         installButton.addEventListener('click', () => {
+            alert('Botón clickeado - Abriendo en pantalla completa');
+            
+            // Siempre abrir en pantalla completa
+            const fullscreenResult = openFullscreen();
+            console.log('Fullscreen result:', fullscreenResult);
+            
+            // Si hay deferredPrompt, también mostrar el prompt de instalación
             if (deferredPrompt) {
+                console.log('Mostrando prompt de instalación');
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
@@ -1649,8 +1657,7 @@
                     deferredPrompt = null;
                 });
             } else {
-                // Si no está listo para instalar, mostrar mensaje
-                alert('Para instalar la app, visita este sitio desde HTTPS (GitHub Pages)');
+                console.log('No hay deferredPrompt disponible');
             }
         });
         
@@ -1658,6 +1665,31 @@
         window.addEventListener('appinstalled', () => {
             installButton.style.display = 'none';
         });
+        
+        // Función para abrir en pantalla completa
+        function openFullscreen() {
+            try {
+                const elem = document.documentElement;
+                if (elem.requestFullscreen) {
+                    return elem.requestFullscreen();
+                } else if (elem.webkitRequestFullscreen) { /* Safari */
+                    return elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { /* IE11 */
+                    return elem.msRequestFullscreen();
+                } else {
+                    console.log('Fullscreen no soportado en este navegador');
+                    return false;
+                }
+            } catch (error) {
+                console.log('Fullscreen error:', error);
+                return false;
+            }
+        }
+        
+        // Asegurar que el botón sea visible
+        setTimeout(() => {
+            console.log('Install button visible:', installButton);
+        }, 1000);
     </script>
 </body>
 </html>
