@@ -1623,11 +1623,14 @@
                 navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                        console.log('ServiceWorker state:', registration.installing ? 'installing' : (registration.waiting ? 'waiting' : 'active'));
                     })
                     .catch(error => {
                         console.log('ServiceWorker registration failed: ', error);
                     });
             });
+        } else {
+            console.log('ServiceWorker no soportado en este navegador');
         }
 
         // PWA Install Prompt
@@ -1640,24 +1643,25 @@
         });
         
         installButton.addEventListener('click', () => {
-            alert('Botón clickeado - Abriendo en pantalla completa');
+            console.log('Botón clickeado');
+            console.log('deferredPrompt disponible:', !!deferredPrompt);
             
-            // Siempre abrir en pantalla completa
-            const fullscreenResult = openFullscreen();
-            console.log('Fullscreen result:', fullscreenResult);
-            
-            // Si hay deferredPrompt, también mostrar el prompt de instalación
+            // Si hay deferredPrompt, mostrar el prompt de instalación
             if (deferredPrompt) {
                 console.log('Mostrando prompt de instalación');
                 deferredPrompt.prompt();
                 deferredPrompt.userChoice.then((choiceResult) => {
                     if (choiceResult.outcome === 'accepted') {
                         console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User rejected the install prompt');
                     }
                     deferredPrompt = null;
                 });
             } else {
-                console.log('No hay deferredPrompt disponible');
+                // Si no está en HTTPS o no hay deferredPrompt, abrir en pantalla completa
+                console.log('No hay deferredPrompt, abriendo pantalla completa');
+                openFullscreen();
             }
         });
         
